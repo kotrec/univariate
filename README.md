@@ -1,7 +1,7 @@
 # 遺伝と環境の心理学
 「遺伝と環境の心理学 - 人間行動遺伝学入門」(安藤寿康・著，培風館，2014/07/04) のサポートページです．
 
-# 訂正とコメント
+## 訂正とコメント
 * p.27 下から7行目　誤:「G」　正:イタリック「G」
 * p.44 図2.3　図中の吹き出し「遺伝+非共有環境」は「指紋隆線数」と「体重」の両方を指す
 * p.74 上から2行目　誤:「それぞれにかかる係数を」　正:「それぞれにかかる係数の二乗(ルート内の数値)を」
@@ -9,11 +9,11 @@
 * p.271　上から11-12行目　誤:「感じている人もいる。この世の中には大勢いる。」　正:「感じている人もこの世の中には大勢いる。」
 * p.275 下から4行目　「付録1にあるプログラム」を掲載しそこねました。このプログラムはMxに [univariate.txt](https://github.com/kotrec/univariate/blob/master/univariate.txt) を直接入力(張り付け)するか、 [univariate_ace.mx](https://github.com/kotrec/univariate/blob/master/univariate.mx) をダウンロードしてください。
 
-# 本文で紹介されている事例のプログラムとダミーデータ
+## 本文で紹介されている事例のプログラムとダミーデータ
 
 * プログラム: [univariate_ace.mx](https://github.com/kotrec/univariate/blob/master/univariate.mx)
 * ダミーデータ: [ozbmi2.txt](https://github.com/kotrec/univariate/blob/master/ozbmi2.txt)
 
-#  OpenMxによる解析
+##  OpenMxによる解析
 
 現在作成中です．
