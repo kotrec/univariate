@@ -1,0 +1,76 @@
+! Estimate genetic and environmental components - ACED model
+! 
+
+#NGroups 4
+#define nvar 1
+#define nvar2 2
+
+Title G1: Parameters
+ Calculation 
+ Begin Matrices;
+  X Lower nvar nvar Free  !  additive genetic path, a
+  Y Lower nvar nvar Free      !  common environmental path, c
+  Z Lower nvar nvar Free  !  specific environmental path, e
+  W Lower nvar nvar Fixed  !  dominance genetic path, d
+  H Full 1 1              ! scalar, 0.5
+  Q Full 1 1              ! scalar, 0.25
+ End Matrices;
+  Matrix H .5
+  Matrix Q .25
+  Bound 0 100000 ALL
+ Begin Algebra;
+  A= X*X';                !  additive genetic variance
+  C= Y*Y';                !  common environmental variance
+  E= Z*Z';                !  unique environmental variance
+  D= W*W';                !  dominance variance
+End Algebra;
+End
+
+Title G2: MZ data
+Data  NInput=13
+Rectangular File=ozbmi2.txt
+Label
+fam	agecat	age	zyg	part	wt1	wt2	ht1	ht2	htwt1	htwt2	bmi1 	bmi2
+ Select if agecat = 0
+ Select if zyg =1 
+ Select 	wt1 wt2;
+ Begin Matrices = Group 1;
+  M Full 1 nvar2 Free
+ Means M;
+ Covariance 
+ A+D+C+E | A+D+C   _  
+ A+D+C   | A+D+C+E;
+End
+
+Title G3: DZ data
+Data NInput=13
+Rectangular File=ozbmi2.txt
+Label
+fam	agecat	age	zyg	part	wt1	wt2	ht1	ht2	htwt1	htwt2	bmi1 	bmi2
+ Select if agecat = 0
+ Select if zyg =3 
+ Select 	wt1 wt2;
+ Begin Matrices = Group 1;
+  M Full 1 nvar2 Free
+ End Matrices;
+ Means M;
+ Covariance 
+ A+D+C+E | H@A+Q@D+C   _  
+ H@A+Q@D+C   | A+D+C+E;
+End
+
+
+
+Title G4: Standardization
+ Calculation
+ Begin Matrices = Group 1;
+ End Matrices;
+  start 30 all
+ Begin Algebra;
+  V= A+D+C+E;
+  R= A|D|C|E;       
+  S= X|W|Y|Z;
+  P= A%V| D%V| C%V |E%V ;  !  standardized variance components
+ End Algebra;
+ Option Multiple
+End
