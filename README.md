@@ -7,5 +7,4 @@
 * p.74 上から2行目　誤:「それぞれにかかる係数を」　正:「それぞれにかかる係数の二乗(ルート内の数値)を」
 * p.77 図3.11(a)　脚注として「(  )内は係数の95%信頼性区間」を追加
 * p.271　上から11-12行目　誤:「感じている人もいる。この世の中には大勢いる。」　正:「感じている人もこの世の中には大勢いる。」
-* p.275 下から4行目　「付録1にあるプログラム」を掲載しそこねました。このプログラムはMxに univariate.txt を直接入力(張り付け)するか、本サイトの univariate_ace.mx をダウンロードしてください。
-
+* p.275 下から4行目　「付録1にあるプログラム」を掲載しそこねました。このプログラムはMxに [univariate.txt](https://github.com/kotrec/univariate/blob/master/univariate.txt) を直接入力(張り付け)するか、 [univariate_ace.mx](https://github.com/kotrec/univariate/blob/master/univariate.mx) をダウンロードしてください。
